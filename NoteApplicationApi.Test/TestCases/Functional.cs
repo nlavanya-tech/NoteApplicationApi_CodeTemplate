@@ -14,8 +14,11 @@ namespace NoteApplicationApi.Test.TestCases
 {
     public class Functional
     {
+        //Creating noteService mock object
         private INoteService _services;
         public readonly Mock<INoteRepository> service = new Mock<INoteRepository>();
+
+        //Here creating text file to generate test methods 
         static Functional()
         {
             if (!File.Exists("../../../../output_functional_revised.txt"))
@@ -33,13 +36,15 @@ namespace NoteApplicationApi.Test.TestCases
                 File.Create("../../../../output_functional_revised.txt").Dispose();
             }
         }
-       
 
+        //class constructor 
         public Functional()
         {
             //    Utilities.CreatefunctionalTextfile();
             _services = new NoteService(service.Object);
         }
+
+        //To Test Getall notes
         [Fact]
         public async void Test_GetAllNotesAndStatus()
         {
@@ -57,6 +62,8 @@ namespace NoteApplicationApi.Test.TestCases
             Assert.NotNull(result);
 
         }
+
+        //To Test Create notes and return notes data 
         [Fact]
         public async void Test_CreateNewNotes()
         {
@@ -82,6 +89,8 @@ namespace NoteApplicationApi.Test.TestCases
             File.AppendAllText("../../../../output_functional_revised.txt", "Test_CreateNewNotes=" + final + "\n");
             Assert.Equal(notes, result);
         }
+
+        //To Test Update notes and return notes data 
         [Fact]
         public async void Test_UpdatedNotes()
         {
@@ -106,6 +115,8 @@ namespace NoteApplicationApi.Test.TestCases
             File.AppendAllText("../../../../output_functional_revised.txt", "Test_UpdatedNotes=" + finalresult + "\n");
             Assert.Equal(notes, result);
         }
+
+        //To Test Validate empty Notes
         [Fact]
         public async void Test_ValidateEmptyNotes()
         {
@@ -123,6 +134,8 @@ namespace NoteApplicationApi.Test.TestCases
             File.AppendAllText("../../../../output_functional_revised.txt", "Test_ValidateEmptyNotes=" + finalresult + "\n");
             Assert.NotNull(result);
         }
+
+        //TO test perticular Notes Deleted or not and it shoud not return null
         [Fact]
         public async void Test_DeleteNotesList()
         {
