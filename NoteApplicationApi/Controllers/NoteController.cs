@@ -23,14 +23,15 @@ namespace NoteApplicationApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<Notes>> GetAllNotes()
         {
-            var notes = await _service.ReadAsync();
-            return notes;
+            //Do Code Here
+            throw new NotImplementedException();
         }
         // POST: api/Notes
         //This Method Gets Request Call from User to Create Notes.
         [HttpPost]
         public async void SubmitNotes([FromBody] Notes notes)
         {
+            //Do Code Here
             throw new NotImplementedException();
         }
 
@@ -39,6 +40,7 @@ namespace NoteApplicationApi.Controllers
         [HttpPut("{id}")]
         public async void UpdateNotes(int id, [FromBody] Notes notes)
         {
+            //Do Code Here
             throw new NotImplementedException();
         }
 
@@ -47,6 +49,7 @@ namespace NoteApplicationApi.Controllers
         [HttpDelete("{id}")]
         public async void DeleteNotes(int id)
         {
+            //Do Code Here
             throw new NotImplementedException();
         }
     }
