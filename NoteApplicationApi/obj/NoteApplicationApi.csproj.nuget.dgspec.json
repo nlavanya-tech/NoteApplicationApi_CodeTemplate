@@ -112,7 +112,7 @@
           "dependencies": {
             "Microsoft.Extensions.Options": {
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[2.2.0, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
@@ -246,7 +246,7 @@
           "dependencies": {
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[2.2.4, )"
             }
           },
           "imports": [
