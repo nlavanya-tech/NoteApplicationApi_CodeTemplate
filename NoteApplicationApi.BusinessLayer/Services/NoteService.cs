@@ -18,32 +18,26 @@ namespace NoteApplicationApi.BusinessLayer.Services
         //Get call from controller to read All Notes Data
         public async Task<IEnumerable<Notes>> ReadAsync()
         {
-            var notes = await _repository.ReadAsync();
-            return notes;
+            throw new NotImplementedException();
         }
         public async Task<Notes> ReadIdAsync(int id)
         {
-            var notes = await _repository.ReadIdAsync(id);
-            return notes;
+            throw new NotImplementedException();
         }
         //Get call from controller to Create Note 
         public async Task<Notes> CreateAsync(Notes notes)
         {
-            await _repository.CreateAsync(notes);
-            return notes;
+            throw new NotImplementedException();
         }
         //Get call from controller to Update Note 
         public async Task<Notes> UpdateAsync(int id ,Notes notes)
         {
-            var note = await _repository.UpdateAsync(id ,notes);
-
-            return note;
+            throw new NotImplementedException();
         }
         //Get call from controller to Delete Note 
         public async Task<bool> DeleteAsync(int id)
         {
-            bool result = await _repository.DeleteAsync(id);
-            return result;
+            throw new NotImplementedException();
         }
     }
 }

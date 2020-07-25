@@ -34,7 +34,9 @@ namespace NoteApplicationApi.BusinessLayer.Services.Repository
         {
             try
             {
-                throw new NotImplementedException();
+                FilterDefinition<Notes> filter = Builders<Notes>.Filter.Eq(m => m.Id, id);
+                var notes = await _context.notes.Find(filter).FirstOrDefaultAsync();
+                return notes;
             }
             catch (Exception ex)
             {
@@ -46,7 +48,8 @@ namespace NoteApplicationApi.BusinessLayer.Services.Repository
         {
             try
             {
-                throw new NotImplementedException();
+                await _context.notes.InsertOneAsync(notes);
+                return notes;
             }
             catch (Exception ex)
             {
@@ -58,7 +61,9 @@ namespace NoteApplicationApi.BusinessLayer.Services.Repository
         {
             try
             {
-                throw new NotImplementedException();
+                ReplaceOneResult updateResult = await _context.notes.ReplaceOneAsync(filter: g => g.Id == id, replacement: notes);
+
+                return notes;
             }
             catch (Exception ex)
             {
@@ -70,7 +75,10 @@ namespace NoteApplicationApi.BusinessLayer.Services.Repository
         {
             try
             {
-                throw new NotImplementedException();
+                FilterDefinition<Notes> filter = Builders<Notes>.Filter.Eq(m => m.Id, id);
+                DeleteResult deleteResult = await _context.notes.DeleteOneAsync(filter);
+                bool result = deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
+                return result;
             }
             catch (Exception ex)
             {

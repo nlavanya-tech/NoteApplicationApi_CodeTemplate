@@ -21,10 +21,10 @@ namespace NoteApplicationApi.Test.TestCases
         //Here creating text file to generate test methods 
         static Functional()
         {
-            if (!File.Exists("../../../../output_functional_revised.txt"))
+            if (!File.Exists("../../../../output_revised.txt"))
                 try
                 {
-                    File.Create("../../../../output_functional_revised.txt").Dispose();
+                    File.Create("../../../../output_revised.txt").Dispose();
                 }
                 catch (Exception)
                 {
@@ -32,8 +32,8 @@ namespace NoteApplicationApi.Test.TestCases
                 }
             else
             {
-                File.Delete("../../../../output_functional_revised.txt");
-                File.Create("../../../../output_functional_revised.txt").Dispose();
+                File.Delete("../../../../output_revised.txt");
+                File.Create("../../../../output_revised.txt").Dispose();
             }
         }
 
@@ -57,7 +57,7 @@ namespace NoteApplicationApi.Test.TestCases
             if (result != null) { finalresult = true; }
 
             //finalresult displaying in text file
-              File.AppendAllText("../../../../output_functional_revised.txt", "Test_GetAllNotesAndStatus=" + finalresult + "\n");
+              File.AppendAllText("../../../../output_revised.txt", "Test_GetAllNotesAndStatus=" + finalresult + "\n");
             //TextFiles.AppendTextAllFunctionalText("Test_GetAllNotesAndStatus", finalresult);
             Assert.NotNull(result);
 
@@ -86,7 +86,7 @@ namespace NoteApplicationApi.Test.TestCases
 
 
             //finalresult displaying in text file
-            File.AppendAllText("../../../../output_functional_revised.txt", "Test_CreateNewNotes=" + final + "\n");
+            File.AppendAllText("../../../../output_revised.txt", "Test_CreateNewNotes=" + final + "\n");
             Assert.Equal(notes, result);
         }
 
@@ -112,7 +112,7 @@ namespace NoteApplicationApi.Test.TestCases
 
 
             //finalresult displaying in text file
-            File.AppendAllText("../../../../output_functional_revised.txt", "Test_UpdatedNotes=" + finalresult + "\n");
+            File.AppendAllText("../../../../output_revised.txt", "Test_UpdatedNotes=" + finalresult + "\n");
             Assert.Equal(notes, result);
         }
 
@@ -131,7 +131,7 @@ namespace NoteApplicationApi.Test.TestCases
                 finalresult = true;
 
             //finalresult displaying in text file
-            File.AppendAllText("../../../../output_functional_revised.txt", "Test_ValidateEmptyNotes=" + finalresult + "\n");
+            File.AppendAllText("../../../../output_revised.txt", "Test_ValidateEmptyNotes=" + finalresult + "\n");
             Assert.NotNull(result);
         }
 
@@ -152,7 +152,7 @@ namespace NoteApplicationApi.Test.TestCases
             service.Setup(repo => repo.DeleteAsync(notes.Id)).ReturnsAsync(true);
             var result = await _services.DeleteAsync(notes.Id);
             //finalresult displaying in text file
-            File.AppendAllText("../../../../output_functional_revised.txt", "Test_DeleteNotesList=" + result + "\n");
+            File.AppendAllText("../../../../output_revised.txt", "Test_DeleteNotesList=" + result + "\n");
             Assert.True(result);
         }
     }
